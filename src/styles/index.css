@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Utilitaires globaux */
+:root {
+  --bg-dark: #0e0e10;
+  --brand-orange: #ff7a00;
+}
+
+html,
+body,
+
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-[var(--bg-dark)] text-white font-sans antialiased;
+}
+
+html, body {
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  margin-top: 100vh;
+  scroll-snap-align: start;
+}
+
+/* Classes pour split layout du Hero */
+.split-left {
+  background: linear-gradient(180deg, #ff8c32 0%, #ff7a00 100%);
+}
+
+.split-right {
+  background: #000;
+}
+
