@@ -1,10 +1,10 @@
 import type { IconType } from "react-icons";
 import {
   SiReact,SiTailwindcss, SiHtml5, SiCss3, SiJavascript, SiTypescript,
-  SiExpress, SiLaravel, SiDotnet,
+  SiExpress, SiAdonisjs, SiNestjs,
   SiMysql, SiPostgresql, SiMongodb,
   SiQemu, SiDocker, SiKubernetes,
-  SiCplusplus, SiC, SiEspressif,
+  SiC, SiEspressif,
   SiNginx, SiNginxproxymanager, SiOpenvpn, SiGnubash, SiProxmox,
   SiGit, SiGithub, SiJsonwebtokens,SiPostman, SiN8N, SiGithubactions
 } from "react-icons/si";
@@ -25,7 +25,6 @@ export const skillGroups: SkillGroup[] = [
     category: "Frontend",
     skills: [
       { name: "React", icon: SiReact },
-
       { name: "Tailwind", icon: SiTailwindcss },
       { name: "Html", icon: SiHtml5 },
       { name: "Css", icon: SiCss3 },
@@ -36,9 +35,9 @@ export const skillGroups: SkillGroup[] = [
   {
     category: "Backend",
     skills: [
-      { name: "Laravel" , icon: SiLaravel},
       { name: "Express" , icon: SiExpress},
-      { name: "Asp.net Core" , icon: SiDotnet},
+      { name: "Adonis" , icon: SiAdonisjs},
+      { name: "Nest" , icon: SiNestjs},
 
     ],
   },
@@ -63,7 +62,6 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "ESP32", icon: SiEspressif },
       { name: "C", icon: SiC },
-      { name: "C++", icon: SiCplusplus },
       { name: "Électronique", icon: GiElectric },
       
     ],
