@@ -16,10 +16,10 @@ export const projects: Project[] = [
     image: "employee.ico",
   },
   {
-    title: "Weather App (Incoming)",
-    description: "Application météo interactive avec prévisions locales et visualisations graphiques.",
-    badge: "App",
-    demo: "#", // lien à venir
-    image: "/weather.ico",
+    title: "Book Wiki",
+    description: "Application web pour cataloguer et gérer une collection de livres, avec fonctionnalités de recherche avancée.",
+    badge: "React + Express",
+    demo: "https://bookwiki.acinox.ovh/", // lien à venir
+    image: "/bookwiki.png",
   },
 ];
