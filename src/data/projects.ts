@@ -9,11 +9,11 @@ export const projects: Project[] = [
     image: "/banking.ico",
   },
   {
-    title: "Employee Manager (C++)",
-    description: "Projet en C++ pour la gestion des employés, avec suivi des horaires et organisation interne.",
-    badge: "C++",
-    demo: "https://github.com/acinox-it/EmployeeManager", // mets ton vrai lien GitHub
-    image: "employee.ico",
+    title: "CandyDex",
+    description: "Application web pour cataloguer et gérer une collection de pokemons, avec fonctionnalités de recherche et filtres.",
+    badge: "React + AdonisJS",
+    demo: "https://candydex.acinox.ovh/", // mets ton vrai lien GitHub
+    image: "/candydex.jpg",
   },
   {
     title: "Book Wiki",
