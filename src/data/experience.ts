@@ -11,14 +11,14 @@ export const experiences: ExperienceItem[] = [
         company: "GICA",
         period: "Juin 2025 - Août 2025",
         description:
-            "- Installation de postes de travail\n- Assistance aux utilisateurs\n- Support bureautique\n- Intervention sur site ou à distance\n- Suivi des tickets",
+            "- Déploiement et préparation de postes (installation, configuration, mises à jour)\n- Support utilisateurs (sur site / à distance) et résolution d’incidents\n- Diagnostic de base (réseau, accès, logiciels) via vérification des logs/paramètres\n- Suivi des tickets et communication claire sur l’avancement",
     },
     {
         title: "Stage Informatique & Téléphonie",
         company: "MULTIGSM SERVICES",
         period: "Mai 2024 - Juillet 2024",
         description:
-            "- Maintenance/réparation de matériel informatique et smartphones(micro soudure, diagnostics)\n- Support technique client et gestion des demandes(hardware/software)\n- Contribution à l’optimisation des processus de dépannage",
+            "- Maintenance et diagnostic matériel (PC/smartphones) : tests, identification panne, réparation\n- Support technique client (hardware/software) et gestion des demandes\n- Amélioration continue : standardisation de checks de diagnostic pour accélérer le dépannage",
     },
     {
         title: "Employé Polyvalant",

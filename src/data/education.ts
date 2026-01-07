@@ -14,8 +14,8 @@ export const education: EducationItem[] = [
             "Spécialisation en cybersécurité, informatique et réseaux.",
     },
     {
-        degree: " Baccalauréat général",
-        school: "Lycée jaques monod - Saint jean de braye",
+        degree: "Baccalauréat général",
+        school: "Lycée Jacques Monod - Saint-Jean-de-Braye",
         period: "2022 - 2023",
         description:
             "Mathématiques, Informatique",

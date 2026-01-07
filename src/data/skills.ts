@@ -1,12 +1,25 @@
 import type { IconType } from "react-icons";
 import {
-  SiReact,SiTailwindcss, SiHtml5, SiCss3, SiJavascript, SiTypescript,
-  SiExpress, SiAdonisjs, SiNestjs,
-  SiMysql, SiPostgresql, SiMongodb,
-  SiQemu, SiDocker, SiKubernetes,
-  SiC, SiEspressif,
-  SiNginx, SiNginxproxymanager, SiOpenvpn, SiGnubash, SiProxmox,
-  SiGit, SiGithub, SiJsonwebtokens,SiPostman, SiN8N, SiGithubactions
+  SiLinux,
+  SiCisco,
+  SiWireshark,
+  SiPfsense,
+  SiProxmox,
+  SiDocker,
+  SiNginx,
+  SiNginxproxymanager,
+  SiGit,
+  SiGithubactions,
+  SiLogstash,
+  SiPython,
+  SiRust,
+  SiTypescript,
+  SiKubernetes,
+  SiTerraform,
+  SiAnsible,
+  SiAmazon,
+  SiGo,
+  SiGnubash
 } from "react-icons/si";
 import { GiElectric, GiNetworkBars } from "react-icons/gi";
 
@@ -21,71 +34,46 @@ export interface SkillGroup {
 }
 
 export const skillGroups: SkillGroup[] = [
-  { 
-    category: "Frontend",
+  {
+    category: "Systèmes & Réseaux",
     skills: [
-      { name: "React", icon: SiReact },
-      { name: "Tailwind", icon: SiTailwindcss },
-      { name: "Html", icon: SiHtml5 },
-      { name: "Css", icon: SiCss3 },
-      { name: "Javascript", icon: SiJavascript },
-      { name: "Typescript", icon: SiTypescript },
+      { name: "Linux", icon: SiLinux },
+      { name: "Networking", icon: GiNetworkBars },
+      { name: "Cisco", icon: SiCisco },
+      { name: "Wireshark", icon: SiWireshark },
+      { name: "pfSense", icon: SiPfsense },
+      { name: "Proxmox", icon: SiProxmox }
     ],
   },
   {
-    category: "Backend",
-    skills: [
-      { name: "Express" , icon: SiExpress},
-      { name: "Adonis" , icon: SiAdonisjs},
-      { name: "Nest" , icon: SiNestjs},
-
-    ],
-  },
-  {
-  category: "Databases",
-    skills: [
-      { name: "MySQL", icon: SiMysql },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "MongoDB", icon: SiMongodb },
-    ],
-  },
-  {
-    category: "Virtualisation",
+    category: "DevOps & Infrastructure",
     skills: [
       { name: "Docker", icon: SiDocker },
-      { name: "Kubernetes (K8s)", icon: SiKubernetes },
-      { name: "KVM / QEMU", icon: SiQemu },
-    ],
-  },
-  {
-    category: "Développement embarqué",
-    skills: [
-      { name: "ESP32", icon: SiEspressif },
-      { name: "C", icon: SiC },
-      { name: "Électronique", icon: GiElectric },
-      
-    ],
-  },
-  {
-    category: "Système & Réseaux",
-    skills: [
-      { name: "Networking", icon: GiNetworkBars },
-      { name: "Proxmox", icon: SiProxmox },
       { name: "Nginx", icon: SiNginx },
       { name: "Nginx Proxy Manager", icon: SiNginxproxymanager },
-      { name: "OpenVpn", icon: SiOpenvpn },
-      { name: "Bash", icon: SiGnubash },  
+      { name: "Git", icon: SiGit },
+      
+      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "Logstash", icon: SiLogstash },
+      { name: "Bash", icon: SiGnubash }
     ],
   },
   {
-    category: "Outils",
+    category: "Langages (bases)",
     skills: [
-      { name: "Git", icon: SiGit },
-      { name: "GitHub", icon: SiGithub },
-      { name: "GitHub Actions", icon: SiGithubactions },
-      { name: "Jwt", icon: SiJsonwebtokens },
-      { name: "N8n", icon: SiN8N },
-      { name: "Postman", icon: SiPostman },
+      { name: "Python", icon: SiPython },
+      { name: "Rust", icon: SiRust },
+      { name: "TypeScript", icon: SiTypescript },
+    ],
+  },
+  {
+    category: "Apprentissage 2026 (en cours)",
+    skills: [
+      { name: "Kubernetes", icon: SiKubernetes },
+      { name: "Terraform", icon: SiTerraform },
+      { name: "Ansible", icon: SiAnsible },
+      { name: "AWS", icon: SiAmazon },
+      { name: "Go", icon: SiGo },
     ],
   },
 ];

@@ -4,17 +4,18 @@ import Section from "../common/Section";
 import { skillGroups } from "../../data/skills";
 
 const Skills: React.FC = () => {
-    const [active, setActive] = useState<string | null>(null);
+    const [active, setActive] = useState<string | null>(skillGroups[0]?.category ?? null);
 
     const toggle = (category: string) => {
         setActive((prev) => (prev === category ? null : category));
     };
 
     return (
-        <Section id="skills" title="Skills" subtitle="Technologies et outils">
+        <Section id="skills" title="Arsenal technique" subtitle="Technologies, outils et apprentissages">
             <div className="relative min-h-[100vh] space-y-5">
                 {skillGroups.map((group) => {
                     const isOpen = active === group.category;
+                    const panelId = `skills-panel-${group.category}`;
 
                     return (
                         <motion.div
@@ -28,6 +29,8 @@ const Skills: React.FC = () => {
                             {/* Bouton de catégorie */}
                             <button
                                 onClick={() => toggle(group.category)}
+                                aria-expanded={isOpen}
+                                aria-controls={panelId}
                                 className="w-full text-left px-5 py-4 flex justify-between items-center text-brand-orange font-semibold"
                             >
                                 {group.category}
@@ -38,6 +41,7 @@ const Skills: React.FC = () => {
                             <AnimatePresence initial={false}>
                                 {isOpen && (
                                     <motion.div
+                                        id={panelId}
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
