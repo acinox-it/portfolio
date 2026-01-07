@@ -21,7 +21,7 @@ import {
   SiGo,
   SiGnubash
 } from "react-icons/si";
-import { GiElectric, GiNetworkBars } from "react-icons/gi";
+import {GiNetworkBars } from "react-icons/gi";
 
 export interface Skill {
   name: string;

@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                 >
-                    Full stack Developer
+                    Future Sys-Réseau & Cloud Computing Engineer
                 </motion.p>
                 <motion.h2
                     className="text-3xl md:text-4xl font-semibold mt-2"
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 }}
                 >
-                    Le code n’était pas parfait, mais ce n’était pas ça qui la fascinait. C’était le défi. Les énigmes du frontend comme du backend, qui promettaient apprentissage et découverte. Elle savait ce qui l’attendait et était prête à construire.
+                    Mesure deux fois, déploie une fois — dans le cloud, l’automatisation et l’observabilité font la fiabilité.
                 </motion.p>
 
                 <div className="mt-8 flex items-center gap-4">
