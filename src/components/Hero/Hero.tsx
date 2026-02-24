@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import Button from "../common/Button";
-import IconLink from "../common/IconLink";
-import { FaLinkedin, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
+import SocialLinks from "../common/SocialLinks";
+import { personalInfo } from "../../data/config";
 
 const Hero: React.FC = () => {
     return (
-        <section id = "hero" className="relative min-h-[100vh] grid md:grid-cols-2">
+        <section id="hero" className="relative min-h-[100vh] grid md:grid-cols-2">
             <div className="split-left p-8 md:p-12 flex flex-col items-center justify-center">
                 <motion.img
-                    src="/profile.png"
-                    alt="Aed Sahraoui portrait"
+                    src={personalInfo.profileImage}
+                    alt={`${personalInfo.name} portrait`}
                     className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-white/20 shadow-glow"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                 >
-                    Aed Sahraoui
+                    {personalInfo.nickname}
                 </motion.h1>
             </div>
 
@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                 >
-                    Future Sys-Réseau & Cloud Computing Engineer
+                    {personalInfo.title}
                 </motion.p>
                 <motion.h2
                     className="text-3xl md:text-4xl font-semibold mt-2"
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
                 >
-                    Abd eldjalil Sahraoui
+                    {personalInfo.name}
                 </motion.h2>
                 <motion.p
                     className="mt-4 text-gray-300 leading-relaxed"
@@ -47,25 +47,12 @@ const Hero: React.FC = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.15 }}
                 >
-                    Mesure deux fois, déploie une fois — dans le cloud, l’automatisation et l’observabilité font la fiabilité.
+                    {personalInfo.tagline}
                 </motion.p>
 
                 <div className="mt-8 flex items-center gap-4">
-                    <Button href="/cv.pdf" download variant="primary">Download CV</Button>
-                    <div className="flex items-center gap-4">
-                        <IconLink href="https://www.linkedin.com/in/abd-eldjalil-sahraoui/" label="LinkedIn">
-                            <FaLinkedin size={22} />
-                        </IconLink>
-                        <IconLink href="https://github.com/acinox-it" label="GitHub">
-                            <FaGithub size={22} />
-                        </IconLink>
-                        <IconLink href="https://twitter.com" label="Twitter">
-                            <FaTwitter size={22} />
-                        </IconLink>
-                        <IconLink href="https://www.youtube.com/@AcinoxIT" label="YouTube">
-                            <FaYoutube size={22} />
-                        </IconLink>
-                    </div>
+                    <Button href={personalInfo.cvPath} download variant="primary" ariaLabel="Télécharger le CV">Download CV</Button>
+                    <SocialLinks />
                 </div>
             </div>
         </section>

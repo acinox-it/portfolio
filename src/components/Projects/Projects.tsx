@@ -2,6 +2,7 @@ import { motion, type Variants } from "framer-motion";
 import Section from "../common/Section";
 import { projects } from "../../data/projects";
 import Button from "../common/Button";
+import { socialLinks } from "../../data/config";
 
 const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -14,7 +15,7 @@ const cardVariants: Variants = {
 
 const Projects: React.FC = () => {
     return (
-        <Section id="projects" title="Projects" subtitle="Sélection de travaux récents" className="text-white">
+        <Section id="projects" title="Projets" subtitle="Sélection de travaux récents" className="text-white">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {projects.map((p, i) => (
                     <motion.div
@@ -32,6 +33,7 @@ const Projects: React.FC = () => {
                                 src={p.image}
                                 alt={p.title}
                                 className="w-full h-32 object-cover rounded mb-3"
+                                loading="lazy"
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ duration: 0.3 }}
                             />
@@ -47,7 +49,7 @@ const Projects: React.FC = () => {
                         )}
                         <div className="mt-4">
                             <Button href={p.demo || "#"} variant="ghost" className="!text-black !border-black">
-                                View Demo
+                                Voir le projet
                             </Button>
                         </div>
                     </motion.div>
@@ -60,8 +62,8 @@ const Projects: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
             >
-                <Button href="https://github.com/acinox-it?tab=repositories" variant="primary">
-                    View All
+                <Button href={`${socialLinks.github}?tab=repositories`} variant="primary">
+                    Voir tout
                 </Button>
             </motion.div>
         </Section>

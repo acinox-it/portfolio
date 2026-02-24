@@ -1,9 +1,4 @@
-export interface ExperienceItem {
-    title: string;
-    company: string;
-    period: string;
-    description: string;
-}
+import type { ExperienceItem } from "../types/content";
 
 export const experiences: ExperienceItem[] = [
     {
@@ -11,7 +6,7 @@ export const experiences: ExperienceItem[] = [
         company: "GICA",
         period: "Juin 2025 - Août 2025",
         description:
-            "- Déploiement et préparation de postes (installation, configuration, mises à jour)\n- Support utilisateurs (sur site / à distance) et résolution d’incidents\n- Diagnostic de base (réseau, accès, logiciels) via vérification des logs/paramètres\n- Suivi des tickets et communication claire sur l’avancement",
+            "- Déploiement et préparation de postes (installation, configuration, mises à jour)\n- Support utilisateurs (sur site / à distance) et résolution d'incidents\n- Diagnostic de base (réseau, accès, logiciels) via vérification des logs/paramètres\n- Suivi des tickets et communication claire sur l'avancement",
     },
     {
         title: "Stage Informatique & Téléphonie",

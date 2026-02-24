@@ -14,7 +14,7 @@ const Experience: React.FC = () => {
             <div className="relative border-l-2 border-brand-orange/50 ml-6">
                 {experiences.map((exp, i) => (
                     <motion.div
-                        key={i}
+                        key={`${exp.company}-${exp.period}`}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: i * 0.2 }}

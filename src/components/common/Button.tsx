@@ -11,6 +11,7 @@ type Props = {
   disabled?: boolean;
   loading?: boolean;
   type?: "button" | "submit" | "reset";
+  ariaLabel?: string;
 };
 
 const Button: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const Button: React.FC<Props> = ({
   disabled = false,
   loading = false,
   type = "button",
+  ariaLabel,
 }) => {
   const base =
     "inline-flex items-center gap-2 rounded-md px-5 py-3 transition font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2";
@@ -67,6 +69,7 @@ const Button: React.FC<Props> = ({
       href={href}
       onClick={onClick}
       download={download}
+      aria-label={ariaLabel}
       aria-disabled={disabled || loading}
       className={clsx(disabledStyle)}
     >
@@ -76,6 +79,7 @@ const Button: React.FC<Props> = ({
     <button
       onClick={onClick}
       type={type}
+      aria-label={ariaLabel}
       disabled={disabled || loading}
       aria-disabled={disabled || loading}
     >

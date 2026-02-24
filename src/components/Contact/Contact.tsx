@@ -2,25 +2,36 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Section from "../common/Section";
 import Button from "../common/Button";
-import IconLink from "../common/IconLink";
-import { FaLinkedin, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
+import SocialLinks from "../common/SocialLinks";
+import { contactInfo } from "../../data/config";
 
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
+
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID;
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
 
     const form = formRef.current;
-    if (!form) return;
+    if (!form || !publicKey || !serviceId || !templateId) {
+      setStatus("error");
+      alert("Configuration EmailJS manquante.");
+      return;
+    }
 
     emailjs
-      .sendForm("service_contact", "template_contact", form, "q3drcsBGRqnBuJv3w")
-      .then(() =>
-        emailjs.sendForm("service_autoreply", "template_autoreply", form, "q3drcsBGRqnBuJv3w")
-      )
+      .sendForm(serviceId, templateId, form, publicKey)
+      .then(() => {
+        if (autoReplyTemplateId) {
+          return emailjs.sendForm(serviceId, autoReplyTemplateId, form, publicKey);
+        }
+      })
       .then(() => setStatus("sent"))
       .catch(() => {
         setStatus("error");
@@ -78,22 +89,11 @@ const Contact: React.FC = () => {
 
         <div className="p-6 rounded-lg border border-white/10 bg-white/5">
           <ul className="space-y-2 text-gray-300">
-            <li><span className="text-white">✉ Email:</span> sahraoui.abdeldjalil@outlook.com</li>
-            <li><span className="text-white">✆ Téléphone:</span> +33 7 53 02 88 12</li>
+            <li><span className="text-white">✉ Email:</span> {contactInfo.email}</li>
+            <li><span className="text-white">✆ Téléphone:</span> {contactInfo.phone}</li>
           </ul>
-          <div className="mt-6 flex gap-4">
-            <IconLink href="https://www.linkedin.com/in/abd-eldjalil-sahraoui/" label="LinkedIn">
-              <FaLinkedin size={22} />
-            </IconLink>
-            <IconLink href="https://github.com/acinox-it" label="GitHub">
-              <FaGithub size={22} />
-            </IconLink>
-            <IconLink href="https://twitter.com" label="Twitter">
-              <FaTwitter size={22} />
-            </IconLink>
-            <IconLink href="https://www.youtube.com/@AcinoxIT" label="YouTube">
-              <FaYoutube size={22} />
-            </IconLink>
+          <div className="mt-6">
+            <SocialLinks />
           </div>
         </div>
       </div>

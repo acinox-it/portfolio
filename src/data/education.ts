@@ -1,9 +1,4 @@
-export interface EducationItem {
-    degree: string;
-    school: string;
-    period: string;
-    description: string;
-}
+import type { EducationItem } from "../types/content";
 
 export const education: EducationItem[] = [
     {

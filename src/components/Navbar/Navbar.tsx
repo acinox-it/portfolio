@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useActiveSection } from "../../hooks/useActiveSection";
+import { personalInfo } from "../../data/config";
 
 const sections = [
     { id: "hero", label: "Accueil" },
@@ -33,9 +34,13 @@ const Navbar: React.FC = () => {
             <div className="max-w-6xl mx-auto px-6 py-4">
                 <div className="flex justify-between items-center">
                     {/* Logo / Nom */}
-                    <div className="text-brand-orange font-bold text-xl cursor-pointer" onClick={() => scrollTo("hero")}>
-                        Aed Sahraoui
-                    </div>
+                <button
+                        onClick={() => scrollTo("hero")}
+                        className="text-brand-orange font-bold text-xl cursor-pointer hover:opacity-80 transition"
+                        aria-label="Retour à l'accueil"
+                    >
+                        {personalInfo.nickname}
+                    </button>
 
                     {/* Menu burger (mobile) */}
                     <button
