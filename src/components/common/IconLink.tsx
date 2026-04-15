@@ -1,12 +1,10 @@
-import React from "react";
-
 type Props = {
     href: string;
     label: string;
     children: React.ReactNode;
 };
 
-const IconLink: React.FC<Props> = ({ href, label, children }) => {
+const IconLink = ({ href, label, children }: Props) => {
     return (
         <a
             href={href}

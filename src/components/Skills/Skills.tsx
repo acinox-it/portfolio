@@ -3,77 +3,83 @@ import { motion, AnimatePresence } from "framer-motion";
 import Section from "../common/Section";
 import { skillGroups } from "../../data/skills";
 
-const Skills: React.FC = () => {
-    const [active, setActive] = useState<string | null>(skillGroups[0]?.category ?? null);
+const Skills = () => {
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(skillGroups[0]?.category ?? null);
 
-    const toggle = (category: string) => {
-        setActive((prev) => (prev === category ? null : category));
-    };
+  return (
+    <Section id="skills" title="Compétences" subtitle="Technologies et outils que je maîtrise">
+      <div className="space-y-3">
+        {skillGroups.map((group, groupIndex) => {
+          const isExpanded = expandedGroup === group.category;
+          return (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
+              className="overflow-hidden rounded-xl border border-zinc-800 bg-bg-card"
+            >
+              <button
+                onClick={() => setExpandedGroup(isExpanded ? null : group.category)}
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-bg-secondary transition-colors"
+              >
+                <h3 className="text-lg font-display font-semibold text-text-primary flex items-center gap-2">
+                  <span className="w-2 h-2 bg-accent rounded-full" />
+                  {group.category}
+                </h3>
+                <motion.svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-text-secondary"
+                  animate={{ rotate: isExpanded ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </motion.svg>
+              </button>
 
-    return (
-        <Section id="skills" title="Arsenal technique" subtitle="Technologies, outils et apprentissages">
-            <div className="relative min-h-[100vh] space-y-5">
-                {skillGroups.map((group) => {
-                    const isOpen = active === group.category;
-                    const panelId = `skills-panel-${group.category}`;
-
-                    return (
-                        <motion.div
-                            key={group.category}
-                            initial={{ opacity: 0, y: 15 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="border border-white/10 rounded-lg bg-black/30"
-                        >
-                            {/* Bouton de catégorie */}
-                            <button
-                                onClick={() => toggle(group.category)}
-                                aria-expanded={isOpen}
-                                aria-controls={panelId}
-                                className="w-full text-left px-5 py-4 flex justify-between items-center text-brand-orange font-semibold"
-                            >
-                                {group.category}
-                                <span className="text-white">{isOpen ? "−" : "+"}</span>
-                            </button>
-
-                            {/* Contenu animé */}
-                            <AnimatePresence initial={false}>
-                                {isOpen && (
-                                    <motion.div
-                                        id={panelId}
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="px-5 pb-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                                            {group.skills.map((s) => {
-                                                const Icon = s.icon;
-                                                return (
-                                                    <motion.div
-                                                        key={s.name}
-                                                        initial={{ opacity: 0, y: 10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ duration: 0.3 }}
-                                                        className="flex items-center gap-2 p-3 rounded bg-black/50 border border-white/10 hover:bg-black/70 transition"
-                                                    >
-                                                        <Icon size={20} className="text-brand-orange" />
-                                                        <span className="text-white">{s.name}</span>
-                                                    </motion.div>
-                                                );
-                                            })}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </motion.div>
-                    );
-                })}
-            </div>
-        </Section>
-    );
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="border-t border-zinc-800"
+                  >
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 p-4">
+                      {group.skills.map((skill, skillIndex) => {
+                        const Icon = skill.icon;
+                        return (
+                          <motion.div
+                            key={skill.name}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.2, delay: skillIndex * 0.05 }}
+                            className="flex items-center gap-3 p-3 rounded-lg bg-bg-secondary border border-zinc-800 hover:border-accent/50 transition-all group"
+                          >
+                            <Icon size={20} className="text-accent group-hover:text-accent-hover transition-colors" />
+                            <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">
+                              {skill.name}
+                            </span>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          );
+        })}
+      </div>
+    </Section>
+  );
 };
 
 export default Skills;

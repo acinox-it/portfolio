@@ -1,31 +1,60 @@
-import Section from "../common/Section";
 import { motion } from "framer-motion";
+import Section from "../common/Section";
 
-const About: React.FC = () => {
-    return (
-        <Section id="about" title="Profil" subtitle="Alternance DevOps / Cloud / Sys-Réseau">
-            <div className="grid md:grid-cols-2 gap-10">
-                <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                    <h3 className="text-xl font-semibold text-brand-orange mb-2">Alternance à partir de septembre 2026</h3>
-                    <p className="text-justify text-gray-200">
-                        Alternant en <strong>Systèmes, Réseaux & Cloud Computing</strong>, je recherche une alternance (rythme <strong>3 semaines entreprise / 1 semaine formation</strong>) orientée <strong>DevOps</strong>, <strong>Cloud</strong>, <strong>Administration Sys/Réseau</strong> et <strong>sécurité opérationnelle</strong>. Je suis <strong>habilitable Défense</strong>.
-                    </p>
+const softSkills = [
+  "Geek dans l'âme, toujours sur un écran",
+  "Home lab personnel (Proxmox, Docker, VPN)",
+  "Passionné par les objets connectés & la robotique",
+  "L'informatique, c'est ma vie",
+];
 
-                                  </motion.div>
-                <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                    <div className="p-6 rounded-lg border border-white/10 bg-white/5">
-                        <h4 className="text-lg font-semibold text-white">Mes atouts</h4>
-                        <ul className="mt-3 space-y-2 text-sm text-gray-300 list-disc pl-5">
-                            <li><strong>Fiabilité & reproductibilité</strong> : lab propre, configs documentées, environnements répétables.</li>
-                            <li><strong>Culture Ops</strong> : Linux, DNS, connectivité, diagnostic (logs/traffic) pour aller vite au root cause.</li>
-                            <li><strong>Automatisation (junior)</strong> : scripts/CI/deploys Docker/Nginx pour réduire le bruit et sécuriser les routines.</li>
-                            <li><strong>Rigueur d’exécution</strong> : petites PR, Git propre, messages clairs, suivi de bout en bout.</li>
-                        </ul>
-                    </div>
-                </motion.div>
-            </div>
-        </Section>
-    );
+const About = () => {
+  return (
+    <Section id="about" title="À propos" subtitle="Alternant Systèmes, Réseaux & Cloud">
+      <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="bg-bg-card rounded-xl p-6 border border-zinc-800"
+        >
+          <h3 className="text-xl font-display font-semibold text-accent mb-4">Mon profil</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Jeune motivé en <span className="text-text-primary font-medium">3e année de Bachelor Systèmes, Réseaux & Cloud</span> à l'ESGI, je recherche une alternance (rythme <span className="text-text-primary font-medium">3 sem. / 1 sem.</span>) pour 2026/2027.
+          </p>
+          <p className="text-text-secondary leading-relaxed mt-4">
+            Passionné par l'automatisation et la sécurisation des infrastructures, je souhaite mettre ma rigueur et ma curiosité au service de la performance de vos systèmes.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="bg-bg-card rounded-xl p-6 border border-zinc-800"
+        >
+          <h3 className="text-xl font-display font-semibold text-accent mb-4">En quelques mots</h3>
+          <ul className="space-y-3">
+            {softSkills.map((skill, i) => (
+              <motion.li
+                key={skill}
+                initial={{ opacity: 0, x: 10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.1 }}
+                className="flex items-center gap-3 text-text-secondary"
+              >
+                <span className="w-2 h-2 bg-accent rounded-full" />
+                {skill}
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
+      </div>
+    </Section>
+  );
 };
 
 export default About;

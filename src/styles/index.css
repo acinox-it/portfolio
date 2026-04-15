@@ -2,38 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Utilitaires globaux */
 :root {
-  --bg-dark: #0e0e10;
-  --brand-orange: #ff7a00;
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --accent: #f97316;
 }
 
-html,
-body,
-
-#root {
-  height: 100%;
-}
-
-body {
-  @apply bg-[var(--bg-dark)] text-white font-sans antialiased;
-}
-
-html, body {
-  scroll-snap-type: y mandatory;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  scroll-snap-type: y proximity;
 }
 
 section {
-  margin-top: 100vh;
   scroll-snap-align: start;
 }
 
-/* Classes pour split layout du Hero */
-.split-left {
-  background: linear-gradient(180deg, #ff8c32 0%, #ff7a00 100%);
+body {
+  @apply bg-bg-primary text-text-primary antialiased;
 }
 
-.split-right {
-  background: #000;
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: #fafafa;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #12121a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}

@@ -12,16 +12,14 @@ import {
   SiGithubactions,
   SiLogstash,
   SiPython,
-  SiRust,
-  SiTypescript,
+  SiYaml,
   SiKubernetes,
   SiTerraform,
   SiAnsible,
-  SiAmazon,
   SiGo,
-  SiGnubash
+  SiGnubash,
 } from "react-icons/si";
-import {GiNetworkBars } from "react-icons/gi";
+import { FaAws, FaWindows, FaNetworkWired, FaServer, FaShieldAlt, FaLock } from "react-icons/fa";
 
 export interface Skill {
   name: string;
@@ -35,45 +33,64 @@ export interface SkillGroup {
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: "Systèmes & Réseaux",
+    category: "Administration Systèmes",
     skills: [
+      { name: "Windows Server", icon: FaWindows },
       { name: "Linux", icon: SiLinux },
-      { name: "Networking", icon: GiNetworkBars },
+      { name: "Windows 11/10", icon: FaWindows },
+      { name: "Ubuntu/Debian", icon: SiLinux },
+    ],
+  },
+  {
+    category: "Réseaux & Sécurité",
+    skills: [
+      { name: "TCP/IP", icon: FaNetworkWired },
+      { name: "VLAN", icon: FaNetworkWired },
+      { name: "Routage", icon: FaNetworkWired },
+      { name: "VPN", icon: FaLock },
+      { name: "Pare-feu", icon: FaShieldAlt },
       { name: "Cisco", icon: SiCisco },
       { name: "Wireshark", icon: SiWireshark },
       { name: "pfSense", icon: SiPfsense },
-      { name: "Proxmox", icon: SiProxmox }
     ],
   },
   {
-    category: "DevOps & Infrastructure",
+    category: "Infrastructure & Virtualisation",
     skills: [
-      { name: "Docker", icon: SiDocker },
+      { name: "Proxmox", icon: SiProxmox },
       { name: "Nginx", icon: SiNginx },
       { name: "Nginx Proxy Manager", icon: SiNginxproxymanager },
-      { name: "Git", icon: SiGit },
-      
-      { name: "GitHub Actions", icon: SiGithubactions },
-      { name: "Logstash", icon: SiLogstash },
-      { name: "Bash", icon: SiGnubash }
+      { name: "Serveurs", icon: FaServer },
     ],
   },
   {
-    category: "Langages (bases)",
+    category: "Automatisation & Scripting",
     skills: [
       { name: "Python", icon: SiPython },
-      { name: "Rust", icon: SiRust },
-      { name: "TypeScript", icon: SiTypescript },
+      { name: "Bash", icon: SiGnubash },
+      { name: "YAML", icon: SiYaml },
+      { name: "Go", icon: SiGo },
     ],
   },
   {
-    category: "Apprentissage 2026 (en cours)",
+    category: "DevOps & Cloud",
+    skills: [
+      { name: "Docker", icon: SiDocker },
+      { name: "Git", icon: SiGit },
+      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "ELK", icon: SiLogstash },
+      { name: "AWS", icon: FaAws },
+      { name: "EC2", icon: FaAws },
+      { name: "S3", icon: FaAws },
+      { name: "IAM", icon: FaAws },
+    ],
+  },
+  {
+    category: "En apprentissage",
     skills: [
       { name: "Kubernetes", icon: SiKubernetes },
       { name: "Terraform", icon: SiTerraform },
       { name: "Ansible", icon: SiAnsible },
-      { name: "AWS", icon: SiAmazon },
-      { name: "Go", icon: SiGo },
     ],
   },
 ];

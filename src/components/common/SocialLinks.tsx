@@ -9,7 +9,7 @@ const SOCIAL_LINKS = [
   { href: socialLinks.youtube, label: "YouTube", icon: FaYoutube },
 ] as const;
 
-const SocialLinks: React.FC = () => {
+const SocialLinks = () => {
   return (
     <div className="flex items-center gap-4">
       {SOCIAL_LINKS.map((link) => (

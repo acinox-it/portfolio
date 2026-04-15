@@ -1,42 +1,59 @@
-# Node.js
 node_modules/
-npm-debug.log*
-pnpm-debug.log*
-
-# pnpm
-pnpm-lock.yaml
-pnpm-workspace.yaml
 .pnpm-store/
 
-# Build output
 dist/
 build/
+.turbo/
 
-# TypeScript
-*.tsbuildinfo
-
-# Logs
-*.log
-
-# IDE / éditeurs
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Tests / coverage
-coverage/
-*.lcov
-
-# Env files
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
 .env.*.local
 
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.*.sublime-*
+
+.DS_Store
+AppleDouble
+.LSOverride
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+coverage/
+.nyc_output/
+
+*.local
+
+.eslintcache
+
+*.tsbuildinfo
+*.tsbuildinfo.bak
+
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+.bun/
+bun.lockb
+
+*.7z
+*.dmg
+*.gz
+*.rar
+*.tar
+*.zip

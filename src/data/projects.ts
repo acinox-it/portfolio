@@ -9,11 +9,11 @@ export const projects: Project[] = [
     image: "/banking.ico",
   },
   {
-    title: "CandyDex",
-    description: "Application web pour cataloguer et gérer une collection de pokemons, avec fonctionnalités de recherche et filtres.",
-    badge: "React + AdonisJS",
-    demo: "https://candydex.acinox.ovh/", // mets ton vrai lien GitHub
-    image: "/candydex.jpg",
+    title: "Chatbot IA",
+    description: "Chatbot intelligent alimenté par l'IA, capable de répondre aux questions et d'interagir avec les utilisateurs de manière contextuelle.",
+    badge: "IA & Python",
+    demo: "https://github.com/djalil45800/chatbot",
+    image: "/chatbot.svg",
   },
   {
     title: "Book Wiki",

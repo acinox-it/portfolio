@@ -1,34 +1,26 @@
 import { motion } from "framer-motion";
 import Section from "../common/Section";
-import { FaGraduationCap } from "react-icons/fa";
-import { education } from "../../data/education"; // <-- ton fichier education.ts
+import { education } from "../../data/education";
 
-const Education: React.FC = () => {
+const Education = () => {
   return (
-    <Section
-      id="education"
-      title="Éducation"
-      subtitle="Parcours académique"
-      className="text-white"
-    >
-      <div className="relative border-l-2 border-brand-orange/50 ml-6">
+    <Section id="education" title="Formation" subtitle="Parcours académique">
+      <div className="grid md:grid-cols-2 gap-6">
         {education.map((edu, i) => (
           <motion.div
-            key={i}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.2 }}
+            key={edu.degree}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
             viewport={{ once: true }}
-            className="mb-10 ml-6"
+            className="bg-bg-card rounded-xl p-5 border border-zinc-800 hover:border-accent/50 transition-all group"
           >
-            <span className="absolute -left-3 flex items-center justify-center w-6 h-6 rounded-full bg-brand-orange text-black">
-              <FaGraduationCap size={12} />
-            </span>
-            <h3 className="text-lg font-semibold">{edu.degree}</h3>
-            <p className="text-sm text-white/70">
-              {edu.school} • {edu.period}
-            </p>
-            <p className="mt-2 text-white/80">{edu.description}</p>
+            <div className="flex items-start justify-between gap-2 mb-3">
+              <h3 className="text-lg font-display font-semibold text-text-primary">{edu.degree}</h3>
+              <span className="text-sm text-accent bg-accent/10 px-2 py-1 rounded shrink-0">{edu.period}</span>
+            </div>
+            <p className="text-text-secondary text-sm mb-2">{edu.school}</p>
+            <p className="text-text-muted text-sm">{edu.description}</p>
           </motion.div>
         ))}
       </div>

@@ -1,8 +1,13 @@
-const Footer: React.FC = () => {
-    return (
-        <footer className="py-10 text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} Acinox — All rights reserved.
-        </footer>
-    );
+const Footer = () => {
+  return (
+    <footer className="py-8 border-t border-zinc-800">
+      <div className="max-w-5xl mx-auto px-6 text-center">
+        <p className="text-text-muted text-sm">
+          © {new Date().getFullYear()} Abd eldjalil Sahraoui — Tous droits réservés.
+        </p>
+      </div>
+    </footer>
+  );
 };
+
 export default Footer;

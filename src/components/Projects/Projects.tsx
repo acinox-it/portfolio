@@ -1,73 +1,87 @@
 import { motion, type Variants } from "framer-motion";
 import Section from "../common/Section";
 import { projects } from "../../data/projects";
-import Button from "../common/Button";
 import { socialLinks } from "../../data/config";
 
 const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
-    }),
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5 },
+  }),
 };
 
-const Projects: React.FC = () => {
-    return (
-        <Section id="projects" title="Projets" subtitle="Sélection de travaux récents" className="text-white">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {projects.map((p, i) => (
-                    <motion.div
-                        key={p.title}
-                        className="relative group flex flex-col justify-between p-5 rounded-lg bg-brand-orange text-black shadow-lg cursor-pointer transition-all"
-                        variants={cardVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        custom={i}
-                        whileHover={{ scale: 1.05, rotate: 1 }}
-                    >
-                        {p.image && (
-                            <motion.img
-                                src={p.image}
-                                alt={p.title}
-                                className="w-full h-32 object-cover rounded mb-3"
-                                loading="lazy"
-                                whileHover={{ scale: 1.1 }}
-                                transition={{ duration: 0.3 }}
-                            />
-                        )}
-                        <div>
-                            <div className="font-semibold text-lg">{p.title}</div>
-                            <div className="text-sm mt-1">{p.description}</div>
-                        </div>
-                        {p.badge && (
-                            <span className="mt-2 inline-block text-xs bg-black text-white px-2 py-1 rounded self-start">
-                                {p.badge}
-                            </span>
-                        )}
-                        <div className="mt-4">
-                            <Button href={p.demo || "#"} variant="ghost" className="!text-black !border-black">
-                                Voir le projet
-                            </Button>
-                        </div>
-                    </motion.div>
-                ))}
+const Projects = () => {
+  return (
+    <Section id="projects" title="Projets" subtitle="Sélection de travaux récents">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((p, i) => (
+          <motion.a
+            key={p.title}
+            href={p.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={i}
+            className="group relative bg-bg-card rounded-xl border border-zinc-800 overflow-hidden hover:border-accent/50 transition-all"
+          >
+            {p.image && (
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            )}
+            <div className="p-5">
+              {p.badge && (
+                <span className="inline-block text-xs text-accent bg-accent/10 px-2 py-1 rounded mb-3">
+                  {p.badge}
+                </span>
+              )}
+              <h3 className="text-lg font-display font-semibold text-text-primary group-hover:text-accent transition-colors">
+                {p.title}
+              </h3>
+              <p className="text-text-secondary text-sm mt-2 line-clamp-2">
+                {p.description}
+              </p>
+              <div className="mt-4 flex items-center gap-2 text-accent text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                Voir le projet
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
             </div>
+          </motion.a>
+        ))}
+      </div>
 
-            <motion.div
-                className="mt-8 flex justify-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-            >
-                <Button href={`${socialLinks.github}?tab=repositories`} variant="primary">
-                    Voir tout
-                </Button>
-            </motion.div>
-        </Section>
-    );
+      <motion.div
+        className="mt-12 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <a
+          href={socialLinks.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-bg-primary font-medium rounded-lg hover:bg-accent-hover transition-colors"
+        >
+          Voir tout sur GitHub
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </motion.div>
+    </Section>
+  );
 };
 
 export default Projects;
